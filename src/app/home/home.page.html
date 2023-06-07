@@ -1,20 +1,51 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title> Ana Sayfa </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-card *ngFor="let personel of personeller">
+    <ion-card-header>
+      <ion-card-title> {{personel.ad}} - {{personel.soyad}} </ion-card-title>
+      <ion-card-subtitle>
+        Personel Sicil No: {{personel.sicilNo}}
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button
+        fill="outline"
+        color="success"
+        (click)="DetayGoster(personel.id)"
+      >
+        Envanter Bilgileri
+      </ion-button>
+    </ion-card-content>
+    <ion-button
+    class="delete-button"
+    shape="round"
+    color="danger"
+    fill="solid"
+    size="small"
+  >
+    <ion-icon name="trash"></ion-icon>
+  </ion-button>
+    <ion-button
+      class="update-button"
+      shape="round"
+      color="success"
+      fill="solid"
+      size="small"
+      (click)="updatePersonel(personel)"
+    >
+      <ion-icon name="color-wand"></ion-icon>
+    </ion-button>
+     
+  </ion-card>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="addNewPersonel()">
+      <ion-icon name="person-add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

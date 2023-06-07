@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>DETAY</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>DEMİRBAŞLAR</ion-card-title>
+      <ion-card-subtitle> USER INFORMATİON </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-thumbnail slot="start"> </ion-thumbnail>
+          <ion-label><h3>AD</h3></ion-label>
+          <ion-label><h3>TUR</h3></ion-label>
+          <ion-label><h3>ADET</h3></ion-label>
+          <ion-label><h3>KAYIT TARİHİ</h3></ion-label>
+          <ion-label></ion-label>
+          <ion-label></ion-label>
+        </ion-item>
+      </ion-list>
+      <ion-list *ngFor="let item of demirbaslar">
+        <ion-item>
+          <ion-thumbnail slot="start">
+            <img
+              alt="Silhouette of mountains"
+              src="https://ionicframework.com/docs/img/demos/thumbnail.svg"
+            />
+          </ion-thumbnail>
+          <ion-label> {{item.ad}} </ion-label>
+          <ion-label> {{item.tur}} </ion-label>
+          <ion-label> {{item.adet}} </ion-label>
+          <ion-label> {{item.kayitTarih}} </ion-label>
+          <ion-button expand="full" size="small"
+            >Detaylar <ion-icon slot="start" name="color-wand"></ion-icon
+          ></ion-button>
+          <ion-button expand="full" size="small" color="danger">
+            Sil <ion-icon slot="end" name="trash"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <!-- <ion-list>
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col size-sm="3" size-xs="4"> <h1>TÜR</h1> </ion-col>
+          <ion-col size-sm="3" size-xs="4"> <h1>AD</h1> </ion-col>
+          <ion-col size-sm="2" size-xs="4"> <h1>ADET</h1> </ion-col>
+          <ion-col size-sm="2" size-xs="4">
+            <h1>TARİH</h1>
+          </ion-col>
+          <ion-col size-sm="1" size-xs="2"></ion-col>
+          <ion-col size-sm="1" size-xs="2"></ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    
+    <ion-item>
+       <ion-grid>
+        <ion-row *ngFor="let item of demirbaslar">
+          <ion-col size-sm="3" size-xs="4"> {{ item.tur }} </ion-col>
+          <ion-col size-sm="3" size-xs="4"> {{ item.ad }} </ion-col>
+          <ion-col size-sm="2" size-xs="4"> {{ item.adet }} </ion-col>
+          <ion-col size-sm="2" size-xs="4"> {{ item.kayitTarih }} </ion-col>
+          <ion-col size-sm="1" size-xs="4">
+            <ion-button expand="full" size="small">Detaylar</ion-button>
+          </ion-col>
+          <ion-col size-sm="1" size-xs="4">
+            <ion-button expand="full" size="small" color="danger">
+              Sil <ion-icon slot="end" name="trash"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid> -->
+  <!-- </ion-item> -->
+
+  <!-- </ion-list> -->
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="presentAlert()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
